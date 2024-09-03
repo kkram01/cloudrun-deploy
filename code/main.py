@@ -3,13 +3,13 @@ import flask
 import functions_framework
 import psycopg2
 
-
+#this is a test comment
 @functions_framework.http
 def initialize_db(request: flask.Request) -> flask.Response:
     db = connect()
     
     if db:
-        return flask.Response(response="Connection successfully initialized")
+        return flask.Response(response="Connection successfully tested v2......")
     
     return flask.Response(
         response="Request Failed",

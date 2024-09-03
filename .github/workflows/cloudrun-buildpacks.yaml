@@ -54,6 +54,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 env:
   PROJECT_ID: 'kodrama-playground-348505' # TODO: update Google Cloud project id
