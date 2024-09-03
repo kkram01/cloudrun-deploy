@@ -103,7 +103,7 @@ jobs:
       - name: Build and Publish with Buildpacks
         run: |-
           pack config default-builder 	gcr.io/gae-runtimes/buildpacks/google-gae-22/python/builder
-          pack build ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }} --path=${{ env.SOURCE_DIRECTORY }} --publish --run-image="us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python312:public-image-next"
+          pack build ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }} --path=${{ env.SOURCE_DIRECTORY }} --publish --run-image="us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python312:public-image-next" --env GOOGLE_FUNCTION_SIGNATURE_TYPE=http --env GOOGLE_FUNCTION_TARGET=initialize_db
       
       - name: Create Service ${{ inputs.environment }} Declaration
         run: |-
